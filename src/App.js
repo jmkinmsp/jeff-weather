@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: `http://api.wunderground.com/api/${api.key}/conditions/q/seattle,wa.json`,
+      url: `https://api.wunderground.com/api/${api.key}/conditions/q/seattle,wa.json`,
       inputValue: '',
       unitValue: 'F'
     }
@@ -45,7 +45,7 @@ class App extends Component {
     this.getData();
     navigator.geolocation.getCurrentPosition(function (position) {
       this.setState({
-        url: `http://api.wunderground.com/api/6457c5b88deed945/conditions/q/${position.coords.latitude},${position.coords.longitude}.json`
+        url: `https://api.wunderground.com/api/6457c5b88deed945/conditions/q/${position.coords.latitude},${position.coords.longitude}.json`
       }, () => {
         this.getData();
       });
@@ -61,7 +61,7 @@ class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState({
-      url: `http://api.wunderground.com/api/6457c5b88deed945/conditions/q/${this.state.inputValue}.json`
+      url: `https://api.wunderground.com/api/6457c5b88deed945/conditions/q/${this.state.inputValue}.json`
     }, () => {
       this.getData();
     })
